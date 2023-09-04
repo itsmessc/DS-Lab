@@ -1,2 +1,2 @@
 # MIT Lab Codes
-This file contains lab codes of DS
+This file contains lab codes of DS of III sem ICT department of MITMPL
