@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1692245775 source:d:\220911638\lab 3\palindromestack\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

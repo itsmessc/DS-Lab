@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1691642882 source:d:\220911638\lab 2\deletionofsubstring\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
