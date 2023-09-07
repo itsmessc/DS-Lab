@@ -21,7 +21,7 @@ char pop(struct Stack *s)
     {printf("Empty\n");
     return '\0';}
     char item = s->stack[s->top];
-    s->stack[s->top] = '\0';
+    s->stack[s->top--] = '\0';
     return item;
     
 }
