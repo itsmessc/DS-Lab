@@ -1,17 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+void selectionSort(int *a,int n)
 {
-    int n,min;
-    printf("Enter the size of the array:");
-    scanf("%d",&n);
-    int a[n],i,j,temp;
-    printf("Enter elements:");
-    for(i=0;i<n;i++)
-    {
-       scanf("%d",&a[i]);
-    }
+    int i,j,min,temp;
     for(i=0;i<n;i++)
     {
         min=i;
@@ -26,6 +18,20 @@ int main()
         a[i]=a[min];
         a[min]=temp;
     }
+}
+
+int main()
+{
+    int n;
+    printf("Enter the size of the array:");
+    scanf("%d",&n);
+    int a[n],i;
+    printf("Enter elements:");
+    for(i=0;i<n;i++)
+    {
+       scanf("%d",&a[i]);
+    }
+    selectionSort(a,n);
     printf("Elements after sorting:");
     for(i=0;i<n;i++)
     {
