@@ -62,7 +62,7 @@ void display()
         printf("\n");
     }
 }
-/*void insertatpo(int a,int po)
+void insertatpo(int a,int po)
 {
     int i;
     struct node *temp,*newnode;
@@ -76,7 +76,7 @@ void display()
     newnode->next=NULL;
     newnode->prev=NULL;
     temp=head;
-    for(i=0;i<po;i++)
+    for(i=1;i<po;i++)
     {
         temp=temp->next;
         if(temp==NULL)
@@ -86,8 +86,12 @@ void display()
         }
     }
     newnode->next=temp->next;
-    temp->next->
-}*/
+    newnode->prev=temp;
+
+    temp->next=newnode;
+    temp->next->prev=newnode;
+
+}
 int main()
 {
     int i,m;
