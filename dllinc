@@ -94,11 +94,12 @@ void insertatpo(int a,int po)
 }
 int main()
 {
-    int i,m;
+    int i,m,p;
     do{
         printf("DLL menu:\n");
         printf("1.Insertion at end\n");
         printf("2.Deletion at end\n");
+        printf("3.Insertion at position\n");
         printf("9.display\n");
         printf("Enter choice:");
         scanf("%d",&i);
@@ -111,6 +112,11 @@ int main()
                 break;
             case 2:
                 delend();
+                break;
+            case 3:
+                printf("Enter element and position:");
+                scanf("%d %d",&m,&p);
+                insertatpo(m,p);
                 break;
             case 9:
                 display();
