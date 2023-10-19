@@ -105,8 +105,11 @@ int main()
                 break;
             case 3:
                 result=add(poly1,poly2);
+                printf("Polynomial 1:");
                 print(poly1);
+                printf("Polynomial 2:");
                 print(poly2);
+                printf("Result:");
                 print(result);
                 break;
             case 4:
