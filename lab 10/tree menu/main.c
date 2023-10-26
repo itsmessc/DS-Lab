@@ -92,25 +92,16 @@ void createBST(struct node** root,int data)
         createBST(&(t->right),data);
 
 }
-void leafs(Node *root)
+int leafs(Node *root)
 {
-    Node* stack[50];
-    int top=-1;
-    Node* current=root;
-    int count=0;
-    while(current!=NULL ||top>-1)
-    {
-        while(current!=NULL)
-        {
-            stack[++top]=current;
-            current=current->left;
-        }
-        current=stack[top--];
-        if(current->left==NULL && current->right==NULL)
-            count++;
-        current=current->right;
-    }
-    printf("%d\n",count);
+   if(root==NULL)
+   {
+       return 0;
+   }
+   if(root->left==NULL && root->right==NULL)
+    return 1;
+   else
+    return leafs(root->left)+leafs(root->right);
 }
 void parent(Node *root,int data)
 {
@@ -193,7 +184,8 @@ int main()
                 preorder(root);
                 break;
             case 5:
-                leafs(root);
+                mn=leafs(root);
+                printf("no of leafs of tree are:%d\n",mn);
                 break;
             case 6:
                 printf("Enter element to check parent:");
