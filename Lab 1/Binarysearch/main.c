@@ -30,7 +30,6 @@ int main()
         else if(e>a[m])
             low=m+1;
     }
-
     printf("The element is present at %d position",p);
     return 0;
 }
