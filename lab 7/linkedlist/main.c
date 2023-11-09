@@ -1,4 +1,3 @@
-//code donation from,(lokesh).
 
 #include <stdio.h>
 #include <stdlib.h>
