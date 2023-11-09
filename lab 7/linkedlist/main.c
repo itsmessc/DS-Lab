@@ -1,4 +1,5 @@
 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -135,7 +136,53 @@ void freeList(struct Node *head) {
         free(temp);
     }
 }
-
+void displayy(struct Node **head)
+{
+    if(*head==NULL)
+    {
+        printf("No elements to print\n");
+    }
+    else{
+        struct Node *temp;
+        temp=*head;
+        while(temp!=NULL)
+        {
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+    }
+}
+int bubbleSort(struct Node** head, int count)
+{
+    struct Node** h;
+    int i, j, swapped;
+ 
+    for (i = 0; i <= count; i++) {
+ 
+        h = head;
+        swapped = 0;
+ 
+        for (j = 0; j < count - i - 1; j++) {
+ 
+            struct Node* p1 = *h;
+            struct Node* p2 = p1->next;
+ 
+            if (p1->data > p2->data) {
+ 
+                /* update the link after swapping */
+                *h = swap(p1, p2);
+                swapped = 1;
+            }
+ 
+            h = &(*h)->next;
+        }
+ 
+        /* break if the loop ended without any swap */
+        if (swapped == 0)
+            break;
+    }
+}
+ 
 int main() {
     struct Node *head = NULL;
     int choice, element, beforeElement, afterElement;
@@ -150,6 +197,7 @@ int main() {
         printf("6. Sort the list\n");
         printf("7. Delete every alternate node in the list\n");
         printf("8. Insert an element in a sorted list\n");
+        printf("9. Display\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -187,7 +235,14 @@ int main() {
 
             case 6:
                 printf("Sorting the list...\n");
-                // Add your sorting algorithm here
+                int count=0;
+                struct Node *temp=head;
+                while(temp!=NULL)
+                {
+                    count++;
+                    temp=temp->next;
+                }
+                bubbleSort(&head,count);
                 break;
 
             case 7:
@@ -198,6 +253,9 @@ int main() {
                 printf("Enter the element to insert in sorted order: ");
                 scanf("%d", &element);
                 insertInSorted(&head, element);
+                break;
+            case 9:
+                displayy(&head);
                 break;
 
             case 0:
