@@ -7,6 +7,13 @@ struct Node {
     int data;
     struct Node *next;
 };
+struct Node* swap(struct Node* ptr1, struct Node* ptr2)
+{
+    struct Node* tmp = ptr2->next;
+    ptr2->next = ptr1;
+    ptr1->next = tmp;
+    return ptr2;
+}
 struct Node *createNode(int data) {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     if (newNode == NULL) {
