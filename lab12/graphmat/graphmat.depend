@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1699503872 source:d:\220911638\lab11\graphmat\main.c
+	<stdio.h>
+	<stdlib.h>
+
