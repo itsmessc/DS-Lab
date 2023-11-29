@@ -28,38 +28,44 @@ void postfixTraversal(struct Node* root) {
     postfixTraversal(root->right);
     printf("%c", root->value);
 }
-struct Node* buildTree(char infix[],int s,int e)
+struct Node* buildTree(char infix[], int s, int e)
 {
-    if(s>e)
-    return NULL;
-    int minp=999,mini=-1,pcount=0;
-    for(int i=s;i<=e;i++)
+    if (s > e)
+        return NULL;
+    
+    int minp = 999, mini = -1, pcount = 0, i;
+    for (i = s; i <= e; i++)
     {
-        if(infix[i]=='(')
-        pcount++;
-        else if(infix[i]==')')
-        pcount--;
-        else if(isOperator(infix[i]) && pcount==0)
+        if (infix[i] == '(')
+            pcount++;
+        else if (infix[i] == ')')
+            pcount--;
+        else if (isOperator(infix[i]) && pcount == 0)
         {
             int prec;
-            if(infix[i]=='+' || infix[i]=='-')
-            prec=1;
+            if (infix[i] == '+' || infix[i] == '-')
+                prec = 1;
             else
-            prec=2;
-            if(prec<=minp)
+                prec = 2;
+            if (prec <= minp)
             {
-                minp=prec;
-                mini=i;
+                minp = prec;
+                mini = i;
             }
         }
     }
 
-    if (mini == -1) {
+    if (mini == -1)
+    {
+        if (infix[s] == '(' && infix[e] == ')')
+            return buildTree(infix, s + 1, e - 1);
+        else
             return createNode(infix[s]);
     }
-    struct Node *newnode=createNode(infix[mini]);
-    newnode->left=buildTree(infix,s,mini-1);
-    newnode->right=buildTree(infix,mini+1,e);
+
+    struct Node* newnode = createNode(infix[mini]);
+    newnode->left = buildTree(infix, s, mini - 1);
+    newnode->right = buildTree(infix, mini + 1, e);
     return newnode;
 }
 int main() {
