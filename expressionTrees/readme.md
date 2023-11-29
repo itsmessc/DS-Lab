@@ -1,1 +1,1 @@
-Sai charan is great
+Sai charan is tatti
